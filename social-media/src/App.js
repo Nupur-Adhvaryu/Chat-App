@@ -2,7 +2,7 @@ import React from 'react'
 import ChatRoom from './components/ChatRoom'
 function App() {
   return (
-    <div className="App">
+    <div style={{height:"100%"}} className="App">
         <ChatRoom/>
     </div>
   );

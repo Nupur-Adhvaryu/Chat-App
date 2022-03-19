@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const app = express();
 const MessageRoute = require('./routes/Messages');
+const UserRoute = require('./routes/User');
 
 
 app.use(express.json());
@@ -18,6 +19,7 @@ connection.once('open', () =>{
 })
 const PORT = 4000;
 app.use('/api/chat', MessageRoute);
+app.use('/api/user', UserRoute);
 app.get('/api',(req, res, next) => {
 	
 	res.json({Message:"Hello From APIS...."})
