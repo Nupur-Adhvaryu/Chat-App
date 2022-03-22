@@ -9,7 +9,7 @@ function ChatRoom() {
 		lineHeight: '60px',
 	  }));
 	const [messages, setMessages] = useState([])
-
+	const userName = "jaival";
 	const handleClick = (e)=>{
 		e.preventDefault();
 		fetch('http://localhost:4000/api/chat')
