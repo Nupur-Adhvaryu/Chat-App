@@ -1,13 +1,9 @@
 import React,{useState} from 'react'
 import {Box, Paper, Grid,AppBar, Toolbar, Typography, useScrollTrigger,Container} from '@mui/material'
 import { styled } from '@mui/material/styles';
+import Message from './Message';
 function ChatRoom() {
-	const Item = styled(Paper)(({ theme }) => ({
-		...theme.typography.body2,
-		textAlign: 'center',
-		color: theme.palette.text.secondary,
-		lineHeight: '60px',
-	  }));
+
 	const [messages, setMessages] = useState([])
 	const userName = "jaival";
 	const handleClick = (e)=>{
@@ -16,7 +12,6 @@ function ChatRoom() {
 			.then(res=>res.json())
 			.then(data=>setMessages(data.Messages))
 	}
-
   return (
 	<div style={{height: '100%'}}>
 	<Box sx={{flexGrow:1, height:"100%"}}>
@@ -32,13 +27,7 @@ function ChatRoom() {
 				<Container>
 					<Box sx={{ my: 2 }}>
 					{messages.map(e=>{
-						return  (<Item key={e._id} elevation={3}>
-						{`Message:${e.messageText}
-						Sender:${e.sender}
-						receiver:${e.receiver}
-						dateSent:${e.dateSent}
-						`}
-					  </Item>)
+						return <Message key={e._id} data={e}/>
 					})}
 					</Box>
 				</Container>
